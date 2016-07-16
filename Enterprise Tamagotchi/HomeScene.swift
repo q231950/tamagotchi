@@ -10,8 +10,6 @@ import SpriteKit
 import GameplayKit
 
 class HomeScene : SKScene {
-    var entities = [GKEntity]()
-    var graphs = [String : GKGraph]()
     
     private var stateMachine: GKStateMachine!
     
@@ -22,5 +20,29 @@ class HomeScene : SKScene {
                                                AwakeState(home: self)])
         
         stateMachine.enterState(AwakeState.self)
+    }
+    
+    func handleTouchInScene(touch: CGPoint) {
+        let goSleepButton = childNode(withName: "//goSleepButton")
+        
+        if atPoint(touch) === goSleepButton {
+            attemptToGoSleep()
+        } else {
+            attemptToWakeUp()
+        }
+    }
+    
+    func attemptToGoSleep() {
+        stateMachine.enterState(SleepyState.self)
+    }
+    
+    func attemptToWakeUp() {
+        stateMachine.enterState(WakingUpState.self)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touchLocationInView = touches.first!.location(in: view)
+        let touchLocationInScene = convertPoint(fromView: touchLocationInView)
+        handleTouchInScene(touch: touchLocationInScene)
     }
 }

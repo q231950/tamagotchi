@@ -21,4 +21,7 @@ class AwakeState : TamagotchiState {
         updateFeeling(feeling: "awake")
     }
     
+    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
+        return stateClass === SleepyState.self
+    }
 }

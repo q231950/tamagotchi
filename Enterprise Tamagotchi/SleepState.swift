@@ -15,4 +15,13 @@ class SleepState : TamagotchiState {
         super.init(home: home, associatedNodeName: "SleepState")
     }
     
+    override func didEnter(withPreviousState previousState: GKState?) {
+        super.didEnter(withPreviousState: previousState)
+        
+        updateFeeling(feeling: "sleeping")
+    }
+    
+    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
+        return stateClass === WakingUpState.self
+    }
 }
