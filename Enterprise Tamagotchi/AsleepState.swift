@@ -1,5 +1,5 @@
 //
-//  SleepState.swift
+//  AsleepState.swift
 //  Enterprise Tamagotchi
 //
 //  Created by Martin Kim Dung-Pham on 16.07.16.
@@ -9,16 +9,16 @@
 import SpriteKit
 import GameplayKit
 
-class SleepState : TamagotchiState {
+class AsleepState : TamagotchiState {
     
     required init(home: HomeScene) {
-        super.init(home: home, associatedNodeName: "SleepState")
+        super.init(home: home, associatedNodeName: "AsleepState")
     }
     
     override func didEnter(withPreviousState previousState: GKState?) {
         super.didEnter(withPreviousState: previousState)
         
-        updateFeeling(feeling: "sleeping")
+        updateFeeling(feeling: "asleep")
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {

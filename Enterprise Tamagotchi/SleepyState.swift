@@ -22,8 +22,11 @@ class SleepyState : TamagotchiState {
         
         let dispatchTime: DispatchTime = DispatchTime.now() + Double(Int64(2 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
         DispatchQueue.main.after(when: dispatchTime, execute: {
-            self.stateMachine?.enterState(SleepState.self)
+            self.stateMachine?.enterState(AsleepState.self)
         })
     }
     
+    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
+        return stateClass === AsleepState.self
+    }
 }

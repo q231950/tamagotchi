@@ -15,7 +15,7 @@ class HomeScene : SKScene {
     
     override func didMove(to view: SKView) {
         stateMachine = GKStateMachine(states: [SleepyState(home: self),
-                                               SleepState(home: self),
+                                               AsleepState(home: self),
                                                WakingUpState(home: self),
                                                AwakeState(home: self)])
         

@@ -19,7 +19,7 @@
 		3BAF45181D3A659E009DE1EA /* HomeScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3BAF45171D3A659E009DE1EA /* HomeScene.sks */; };
 		3BAF451A1D3A666C009DE1EA /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF45191D3A666C009DE1EA /* HomeScene.swift */; };
 		3BAF451D1D3A68D5009DE1EA /* SleepyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF451C1D3A68D5009DE1EA /* SleepyState.swift */; };
-		3BAF451F1D3A6941009DE1EA /* SleepState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF451E1D3A6941009DE1EA /* SleepState.swift */; };
+		3BAF451F1D3A6941009DE1EA /* AsleepState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF451E1D3A6941009DE1EA /* AsleepState.swift */; };
 		3BAF45211D3A6967009DE1EA /* WakingUpState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF45201D3A6967009DE1EA /* WakingUpState.swift */; };
 		3BAF45231D3A6982009DE1EA /* AwakeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF45221D3A6982009DE1EA /* AwakeState.swift */; };
 /* End PBXBuildFile section */
@@ -60,7 +60,7 @@
 		3BAF45171D3A659E009DE1EA /* HomeScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HomeScene.sks; sourceTree = "<group>"; };
 		3BAF45191D3A666C009DE1EA /* HomeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
 		3BAF451C1D3A68D5009DE1EA /* SleepyState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepyState.swift; sourceTree = "<group>"; };
-		3BAF451E1D3A6941009DE1EA /* SleepState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SleepState.swift; sourceTree = "<group>"; };
+		3BAF451E1D3A6941009DE1EA /* AsleepState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsleepState.swift; sourceTree = "<group>"; };
 		3BAF45201D3A6967009DE1EA /* WakingUpState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakingUpState.swift; sourceTree = "<group>"; };
 		3BAF45221D3A6982009DE1EA /* AwakeState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwakeState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,7 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				3BAF451C1D3A68D5009DE1EA /* SleepyState.swift */,
-				3BAF451E1D3A6941009DE1EA /* SleepState.swift */,
+				3BAF451E1D3A6941009DE1EA /* AsleepState.swift */,
 				3BAF45201D3A6967009DE1EA /* WakingUpState.swift */,
 				3BAF45221D3A6982009DE1EA /* AwakeState.swift */,
 			);
@@ -308,7 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BAF451D1D3A68D5009DE1EA /* SleepyState.swift in Sources */,
-				3BAF451F1D3A6941009DE1EA /* SleepState.swift in Sources */,
+				3BAF451F1D3A6941009DE1EA /* AsleepState.swift in Sources */,
 				3BAF45211D3A6967009DE1EA /* WakingUpState.swift in Sources */,
 				3B42B5B61D3A8DE00063415E /* TamagotchiState.swift in Sources */,
 				3BAF451A1D3A666C009DE1EA /* HomeScene.swift in Sources */,
