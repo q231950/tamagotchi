@@ -11,6 +11,8 @@
 		3B312A001D3AB67F00F8F739 /* TakingMealState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3129FF1D3AB67F00F8F739 /* TakingMealState.swift */; };
 		3B312A021D3AB78B00F8F739 /* FinishingMealState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B312A011D3AB78B00F8F739 /* FinishingMealState.swift */; };
 		3B312A041D3AB9D100F8F739 /* PrepareForMealState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B312A031D3AB9D100F8F739 /* PrepareForMealState.swift */; };
+		3B3F6DA51D3BAA8900D7EF15 /* Sleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F6DA41D3BAA8900D7EF15 /* Sleep.swift */; };
+		3B3F6DA71D3BAAB700D7EF15 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F6DA61D3BAAB700D7EF15 /* Level.swift */; };
 		3B42B5B61D3A8DE00063415E /* TamagotchiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B42B5B51D3A8DE00063415E /* TamagotchiState.swift */; };
 		3BAF44E21D3A61F1009DE1EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF44E11D3A61F1009DE1EA /* AppDelegate.swift */; };
 		3BAF44E61D3A61F1009DE1EA /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3BAF44E51D3A61F1009DE1EA /* Actions.sks */; };
@@ -50,6 +52,8 @@
 		3B3129FF1D3AB67F00F8F739 /* TakingMealState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakingMealState.swift; sourceTree = "<group>"; };
 		3B312A011D3AB78B00F8F739 /* FinishingMealState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishingMealState.swift; sourceTree = "<group>"; };
 		3B312A031D3AB9D100F8F739 /* PrepareForMealState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrepareForMealState.swift; sourceTree = "<group>"; };
+		3B3F6DA41D3BAA8900D7EF15 /* Sleep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sleep.swift; sourceTree = "<group>"; };
+		3B3F6DA61D3BAAB700D7EF15 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		3B42B5B51D3A8DE00063415E /* TamagotchiState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TamagotchiState.swift; sourceTree = "<group>"; };
 		3BAF44DE1D3A61F1009DE1EA /* Enterprise Tamagotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Enterprise Tamagotchi.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BAF44E11D3A61F1009DE1EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 			children = (
 				3B42B5B51D3A8DE00063415E /* TamagotchiState.swift */,
 				3BAF451B1D3A68C6009DE1EA /* States */,
+				3B3F6DA41D3BAA8900D7EF15 /* Sleep.swift */,
+				3B3F6DA61D3BAAB700D7EF15 /* Level.swift */,
 			);
 			name = Tamagotchi;
 			sourceTree = "<group>";
@@ -132,8 +138,8 @@
 			children = (
 				3BAF44E11D3A61F1009DE1EA /* AppDelegate.swift */,
 				3BAF45171D3A659E009DE1EA /* HomeScene.sks */,
-				3BAF44E51D3A61F1009DE1EA /* Actions.sks */,
 				3BAF45191D3A666C009DE1EA /* HomeScene.swift */,
+				3BAF44E51D3A61F1009DE1EA /* Actions.sks */,
 				3B42B5B71D3A8E7F0063415E /* Tamagotchi */,
 				3BAF44E91D3A61F1009DE1EA /* GameViewController.swift */,
 				3BAF44EB1D3A61F1009DE1EA /* Main.storyboard */,
@@ -327,6 +333,8 @@
 				3BAF45211D3A6967009DE1EA /* WakingUpState.swift in Sources */,
 				3B42B5B61D3A8DE00063415E /* TamagotchiState.swift in Sources */,
 				3BAF451A1D3A666C009DE1EA /* HomeScene.swift in Sources */,
+				3B3F6DA71D3BAAB700D7EF15 /* Level.swift in Sources */,
+				3B3F6DA51D3BAA8900D7EF15 /* Sleep.swift in Sources */,
 				3BAF45231D3A6982009DE1EA /* AwakeState.swift in Sources */,
 				3BAF44EA1D3A61F1009DE1EA /* GameViewController.swift in Sources */,
 				3B312A041D3AB9D100F8F739 /* PrepareForMealState.swift in Sources */,

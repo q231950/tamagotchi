@@ -10,22 +10,33 @@ import GameplayKit
 
 class TakingMealState: TamagotchiState {
     
+    let repletion = Level()
+    
     required init(home: HomeScene) {
-        super.init(home: home, associatedNodeName: "TakingMealState")
+        super.init(home: home, associatedNodeName: "hungerBar")
+        
+        if let action = SKAction(named: "fill0", duration: 0.5) {
+            guard let associatedNode = associatedNode else { return }
+            associatedNode.run(action)
+        }
     }
     
     override func didEnter(withPreviousState previousState: GKState?) {
         super.didEnter(withPreviousState: previousState)
         
         updateFeeling(feeling: "eating")
-        
-        let dispatchTime: DispatchTime = DispatchTime.now() + Double(Int64(2 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-        DispatchQueue.main.after(when: dispatchTime, execute: {
-            self.stateMachine?.enterState(FinishingMealState.self)
-        })
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         return stateClass === FinishingMealState.self
+    }
+    
+    override func update(withDeltaTime seconds: TimeInterval) {
+        repletion.level += 1
+        
+        if let action = SKAction(named: "fill\(repletion.level)", duration: 0.5) {
+            guard let associatedNode = associatedNode else { return }
+            associatedNode.run(action)
+        }
     }
 }

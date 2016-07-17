@@ -21,7 +21,7 @@ class FinishingMealState: TamagotchiState {
         
         let dispatchTime: DispatchTime = DispatchTime.now() + Double(Int64(2 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
         DispatchQueue.main.after(when: dispatchTime, execute: {
-            self.stateMachine?.enterState(SleepyState.self)
+            self.stateMachine?.enterState(AwakeState.self)
         })
     }
     

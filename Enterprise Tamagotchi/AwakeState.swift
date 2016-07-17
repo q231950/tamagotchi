@@ -10,8 +10,15 @@ import GameplayKit
 
 class AwakeState : TamagotchiState {
     
+    let activity = Level()
+    
     required init(home: HomeScene) {
-        super.init(home: home, associatedNodeName: "AwakeState")
+        super.init(home: home, associatedNodeName: "activityBar")
+        
+        if let action = SKAction(named: "fill0", duration: 0.5) {
+            guard let associatedNode = associatedNode else { return }
+            associatedNode.run(action)
+        }
     }
     
     override func didEnter(withPreviousState previousState: GKState?) {
@@ -28,6 +35,15 @@ class AwakeState : TamagotchiState {
             return true
         default:
             return false
+        }
+    }
+    
+    override func update(withDeltaTime seconds: TimeInterval) {
+        activity.level += 1
+        
+        if let action = SKAction(named: "fill\(activity.level)", duration: 0.5) {
+            guard let associatedNode = associatedNode else { return }
+            associatedNode.run(action)
         }
     }
 }

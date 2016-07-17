@@ -19,6 +19,10 @@ class TamagotchiState: GKState {
         self.associatedNodeName = associatedNodeName
     }
     
+    var associatedNode: SKSpriteNode? {
+        return home.childNode(withName: "//\(associatedNodeName)") as? SKSpriteNode
+    }
+    
     func updateFeeling(feeling: String) {
         let feelingLabel = home.childNode(withName: "//feelingLabel") as! SKLabelNode
         feelingLabel.text = feeling

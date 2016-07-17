@@ -12,6 +12,18 @@ import GameplayKit
 class HomeScene : SKScene {
     
     private var stateMachine: GKStateMachine!
+    var sleepynessLevel = CGFloat(0)
+    var previousUpdateTime = TimeInterval(0)
+    
+    override func update(_ currentTime: TimeInterval) {
+        super.update(currentTime)
+        
+        let sincePreviousUpdate = currentTime - previousUpdateTime
+        if sincePreviousUpdate >= 0.3 {
+            stateMachine.update(withDeltaTime: sincePreviousUpdate)
+            previousUpdateTime = currentTime
+        }
+    }
     
     override func didMove(to view: SKView) {
         stateMachine = GKStateMachine(states: [SleepyState(home: self),
@@ -45,7 +57,12 @@ class HomeScene : SKScene {
     }
     
     func attemptToWakeUp() {
-        stateMachine.enterState(WakingUpState.self)
+        if stateMachine.currentState is TakingMealState {
+            stateMachine.enterState(FinishingMealState.self)
+        } else {
+            stateMachine.enterState(WakingUpState.self)
+        }
+        
     }
     
     func attemptToTakeMeal() {
