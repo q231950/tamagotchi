@@ -1,5 +1,5 @@
 //
-//  AwakeState.swift
+//  HungryState.swift
 //  Enterprise Tamagotchi
 //
 //  Created by Martin Kim Dung-Pham on 16.07.16.
@@ -8,26 +8,19 @@
 
 import GameplayKit
 
-class AwakeState : TamagotchiState {
+class HungryState: TamagotchiState {
     
     required init(home: HomeScene) {
-        super.init(home: home, associatedNodeName: "AwakeState")
+        super.init(home: home, associatedNodeName: "HungryState")
     }
     
     override func didEnter(withPreviousState previousState: GKState?) {
         super.didEnter(withPreviousState: previousState)
         
-        updateFeeling(feeling: "awake")
+        updateFeeling(feeling: "hungry")
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-        switch stateClass {
-        case is SleepyState.Type:
-            return true
-        case is PrepareForMealState.Type:
-            return true
-        default:
-            return false
-        }
+        return stateClass === PrepareForMealState.self
     }
 }
