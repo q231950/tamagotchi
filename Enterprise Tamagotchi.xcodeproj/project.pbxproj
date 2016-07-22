@@ -28,6 +28,7 @@
 		3BAF451F1D3A6941009DE1EA /* AsleepState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF451E1D3A6941009DE1EA /* AsleepState.swift */; };
 		3BAF45211D3A6967009DE1EA /* WakingUpState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF45201D3A6967009DE1EA /* WakingUpState.swift */; };
 		3BAF45231D3A6982009DE1EA /* AwakeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF45221D3A6982009DE1EA /* AwakeState.swift */; };
+		3BE5BD571D42B940001CDBEA /* Tamagotchi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE5BD561D42B940001CDBEA /* Tamagotchi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		3BAF451E1D3A6941009DE1EA /* AsleepState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsleepState.swift; sourceTree = "<group>"; };
 		3BAF45201D3A6967009DE1EA /* WakingUpState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakingUpState.swift; sourceTree = "<group>"; };
 		3BAF45221D3A6982009DE1EA /* AwakeState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwakeState.swift; sourceTree = "<group>"; };
+		3BE5BD561D42B940001CDBEA /* Tamagotchi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tamagotchi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +109,9 @@
 			children = (
 				3B42B5B51D3A8DE00063415E /* TamagotchiState.swift */,
 				3BAF451B1D3A68C6009DE1EA /* States */,
-				3B3F6DA41D3BAA8900D7EF15 /* Sleep.swift */,
 				3B3F6DA61D3BAAB700D7EF15 /* Level.swift */,
+				3B3F6DA41D3BAA8900D7EF15 /* Sleep.swift */,
+				3BE5BD561D42B940001CDBEA /* Tamagotchi.swift */,
 			);
 			name = Tamagotchi;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				3BAF451D1D3A68D5009DE1EA /* SleepyState.swift in Sources */,
 				3BAF451F1D3A6941009DE1EA /* AsleepState.swift in Sources */,
 				3B312A021D3AB78B00F8F739 /* FinishingMealState.swift in Sources */,
+				3BE5BD571D42B940001CDBEA /* Tamagotchi.swift in Sources */,
 				3B312A001D3AB67F00F8F739 /* TakingMealState.swift in Sources */,
 				3BAF45211D3A6967009DE1EA /* WakingUpState.swift in Sources */,
 				3B42B5B61D3A8DE00063415E /* TamagotchiState.swift in Sources */,

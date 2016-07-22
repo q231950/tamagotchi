@@ -10,9 +10,10 @@ import GameplayKit
 
 class AwakeState : TamagotchiState {
     
-    let activity = Level()
+    let tamagotchi: Tamagotchi
     
-    required init(home: HomeScene) {
+    required init(home: HomeScene, tamagotchi: Tamagotchi) {
+        self.tamagotchi = tamagotchi
         super.init(home: home, associatedNodeName: "activityBar")
         
         if let action = SKAction(named: "fill0", duration: 0.5) {
@@ -39,9 +40,9 @@ class AwakeState : TamagotchiState {
     }
     
     override func update(withDeltaTime seconds: TimeInterval) {
-        activity.level += 1
+        tamagotchi.activity.level += 1
         
-        if let action = SKAction(named: "fill\(activity.level)", duration: 0.5) {
+        if let action = SKAction(named: "fill\(tamagotchi.activity.level)", duration: 0.5) {
             guard let associatedNode = associatedNode else { return }
             associatedNode.run(action)
         }

@@ -10,9 +10,10 @@ import GameplayKit
 
 class TakingMealState: TamagotchiState {
     
-    let repletion = Level()
+    let tamagotchi:Tamagotchi
     
-    required init(home: HomeScene) {
+    required init(home: HomeScene, tamagotchi: Tamagotchi) {
+        self.tamagotchi = tamagotchi
         super.init(home: home, associatedNodeName: "hungerBar")
         
         if let action = SKAction(named: "fill0", duration: 0.5) {
@@ -32,9 +33,9 @@ class TakingMealState: TamagotchiState {
     }
     
     override func update(withDeltaTime seconds: TimeInterval) {
-        repletion.level += 1
+        tamagotchi.repletion.level += 1
         
-        if let action = SKAction(named: "fill\(repletion.level)", duration: 0.5) {
+        if let action = SKAction(named: "fill\(tamagotchi.repletion.level)", duration: 0.5) {
             guard let associatedNode = associatedNode else { return }
             associatedNode.run(action)
         }

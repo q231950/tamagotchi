@@ -12,8 +12,8 @@ import GameplayKit
 class HomeScene : SKScene {
     
     private var stateMachine: GKStateMachine!
-    var sleepynessLevel = CGFloat(0)
     var previousUpdateTime = TimeInterval(0)
+    let tamagotchi = Tamagotchi()
     
     override func update(_ currentTime: TimeInterval) {
         super.update(currentTime)
@@ -26,13 +26,13 @@ class HomeScene : SKScene {
     }
     
     override func didMove(to view: SKView) {
-        stateMachine = GKStateMachine(states: [SleepyState(home: self),
-                                               AsleepState(home: self),
+        stateMachine = GKStateMachine(states: [SleepyState(home:self),
+                                               AsleepState(home: self, tamagotchi:tamagotchi),
                                                WakingUpState(home: self),
-                                               AwakeState(home: self),
+                                               AwakeState(home: self, tamagotchi:tamagotchi),
                                                HungryState(home: self),
                                                PrepareForMealState(home: self),
-                                               TakingMealState(home: self),
+                                               TakingMealState(home: self, tamagotchi:tamagotchi),
                                                FinishingMealState(home: self)])
         
         stateMachine.enterState(AwakeState.self)
