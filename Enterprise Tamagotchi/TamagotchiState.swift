@@ -9,12 +9,14 @@
 import SpriteKit
 import GameplayKit
 
-class TamagotchiState: GKState {
+class TamagotchiState: GKState, LevelObserver {
     
+    let tamagotchi: Tamagotchi
     let associatedNodeName: String
     let home: HomeScene
 
-    init(home: HomeScene, associatedNodeName: String) {
+    init(home: HomeScene, tamagotchi: Tamagotchi, associatedNodeName: String) {
+        self.tamagotchi = tamagotchi
         self.home = home
         self.associatedNodeName = associatedNodeName
     }
@@ -26,5 +28,14 @@ class TamagotchiState: GKState {
     func updateFeeling(feeling: String) {
         let feelingLabel = home.childNode(withName: "//feelingLabel") as! SKLabelNode
         feelingLabel.text = feeling
+    }
+    
+    // MARK: LevelObserver
+    
+    func updatedLevel(level: Level) {
+        if let action = SKAction(named: "fill\(level.level)", duration: 0.5) {
+            guard let associatedNode = associatedNode else { return }
+            associatedNode.run(action)
+        }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  AwakeState.swift
+//  ActiveState.swift
 //  Enterprise Tamagotchi
 //
 //  Created by Martin Kim Dung-Pham on 16.07.16.
@@ -8,31 +8,25 @@
 
 import GameplayKit
 
-class AwakeState : TamagotchiState {
-    
-    let tamagotchi: Tamagotchi
+class ActiveState : TamagotchiState {
     
     required init(home: HomeScene, tamagotchi: Tamagotchi) {
-        self.tamagotchi = tamagotchi
-        super.init(home: home, associatedNodeName: "activityBar")
+        super.init(home: home, tamagotchi: tamagotchi, associatedNodeName: "activityBar")
         
-        if let action = SKAction(named: "fill0", duration: 0.5) {
-            guard let associatedNode = associatedNode else { return }
-            associatedNode.run(action)
-        }
+        self.tamagotchi.activity.addObserver(observer: self)
     }
     
     override func didEnter(withPreviousState previousState: GKState?) {
         super.didEnter(withPreviousState: previousState)
         
-        updateFeeling(feeling: "awake")
+        updateFeeling(feeling: "active")
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
         switch stateClass {
-        case is SleepyState.Type:
+        case is AsleepState.Type:
             return true
-        case is PrepareForMealState.Type:
+        case is TakingMealState.Type:
             return true
         default:
             return false
@@ -41,10 +35,5 @@ class AwakeState : TamagotchiState {
     
     override func update(withDeltaTime seconds: TimeInterval) {
         tamagotchi.activity.level += 1
-        
-        if let action = SKAction(named: "fill\(tamagotchi.activity.level)", duration: 0.5) {
-            guard let associatedNode = associatedNode else { return }
-            associatedNode.run(action)
-        }
     }
 }

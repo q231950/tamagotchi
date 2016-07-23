@@ -11,17 +11,10 @@ import GameplayKit
 
 class AsleepState : TamagotchiState {
     
-    let tamagotchi:Tamagotchi
-    
     required init(home: HomeScene, tamagotchi: Tamagotchi) {
-        self.tamagotchi = tamagotchi
+        super.init(home: home, tamagotchi: tamagotchi, associatedNodeName: "sleepBar")
         
-        super.init(home: home, associatedNodeName: "sleepBar")
-        
-        if let action = SKAction(named: "fill0", duration: 0.5) {
-            guard let associatedNode = associatedNode else { return }
-            associatedNode.run(action)
-        }
+        self.tamagotchi.sleep.addObserver(observer: self)
     }
     
     override func didEnter(withPreviousState previousState: GKState?) {
@@ -31,15 +24,17 @@ class AsleepState : TamagotchiState {
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-        return stateClass === WakingUpState.self
+        switch stateClass {
+        case is ActiveState.Type:
+            return true
+        case is TakingMealState.Type:
+            return true
+        default:
+            return false
+        }
     }
     
     override func update(withDeltaTime seconds: TimeInterval) {
         tamagotchi.sleep.level += 1
-        
-        if let action = SKAction(named: "fill\(tamagotchi.sleep.level)", duration: 0.5) {
-            guard let associatedNode = associatedNode else { return }
-            associatedNode.run(action)
-        }
     }
 }

@@ -9,8 +9,9 @@
 import SpriteKit
 import GameplayKit
 
+let gameSpeed:Double = 3
+
 class HomeScene : SKScene {
-    
     private var stateMachine: GKStateMachine!
     var previousUpdateTime = TimeInterval(0)
     let tamagotchi = Tamagotchi()
@@ -19,54 +20,45 @@ class HomeScene : SKScene {
         super.update(currentTime)
         
         let sincePreviousUpdate = currentTime - previousUpdateTime
-        if sincePreviousUpdate >= 0.3 {
+        if sincePreviousUpdate >= 1/gameSpeed {
             stateMachine.update(withDeltaTime: sincePreviousUpdate)
             previousUpdateTime = currentTime
         }
     }
     
     override func didMove(to view: SKView) {
-        stateMachine = GKStateMachine(states: [SleepyState(home:self),
-                                               AsleepState(home: self, tamagotchi:tamagotchi),
-                                               WakingUpState(home: self),
-                                               AwakeState(home: self, tamagotchi:tamagotchi),
-                                               HungryState(home: self),
-                                               PrepareForMealState(home: self),
-                                               TakingMealState(home: self, tamagotchi:tamagotchi),
-                                               FinishingMealState(home: self)])
+        stateMachine = GKStateMachine(states: [AsleepState(home: self, tamagotchi:tamagotchi),
+                                               ActiveState(home: self, tamagotchi:tamagotchi),
+                                               TakingMealState(home: self, tamagotchi:tamagotchi)])
         
-        stateMachine.enterState(AwakeState.self)
+        stateMachine.enterState(ActiveState.self)
     }
     
     func handleTouchInScene(touch: CGPoint) {
         let sleepButton = childNode(withName: "//sleepButton")
-        let wakeUpButton = childNode(withName: "//wakeUpButton")
+        let playButton = childNode(withName: "//activityButton")
         let eatButton = childNode(withName: "//eatButton")
         
         if atPoint(touch) === sleepButton {
             attemptToGoSleep()
-        } else if atPoint(touch) === wakeUpButton {
-            attemptToWakeUp()
+        } else if atPoint(touch) === playButton {
+            attemptToPlay()
         } else if atPoint(touch) === eatButton {
             attemptToTakeMeal()
         }
     }
     
     func attemptToGoSleep() {
-        stateMachine.enterState(SleepyState.self)
+        stateMachine.enterState(AsleepState.self)
     }
     
-    func attemptToWakeUp() {
-        if stateMachine.currentState is TakingMealState {
-            stateMachine.enterState(FinishingMealState.self)
-        } else {
-            stateMachine.enterState(WakingUpState.self)
-        }
+    func attemptToPlay() {
+        stateMachine.enterState(ActiveState.self)
         
     }
     
     func attemptToTakeMeal() {
-        stateMachine.enterState(PrepareForMealState.self)
+        stateMachine.enterState(TakingMealState.self)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

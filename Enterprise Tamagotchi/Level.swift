@@ -8,6 +8,22 @@
 
 import Foundation
 
+protocol LevelObserver {
+    func updatedLevel(level: Level)
+}
+
 class Level {
-    var level = Int()
+    var level: Int = 0 {
+        didSet {
+            observers.forEach { (observer: LevelObserver) in
+                observer.updatedLevel(level: self)
+            }
+        }
+    }
+    private var observers = [LevelObserver]()
+    
+    func addObserver(observer: LevelObserver) {
+        observers.append(observer)
+        observer.updatedLevel(level: self)
+    }
 }

@@ -10,16 +10,10 @@ import GameplayKit
 
 class TakingMealState: TamagotchiState {
     
-    let tamagotchi:Tamagotchi
-    
     required init(home: HomeScene, tamagotchi: Tamagotchi) {
-        self.tamagotchi = tamagotchi
-        super.init(home: home, associatedNodeName: "hungerBar")
+        super.init(home: home, tamagotchi: tamagotchi, associatedNodeName: "hungerBar")
         
-        if let action = SKAction(named: "fill0", duration: 0.5) {
-            guard let associatedNode = associatedNode else { return }
-            associatedNode.run(action)
-        }
+        self.tamagotchi.repletion.addObserver(observer: self)
     }
     
     override func didEnter(withPreviousState previousState: GKState?) {
@@ -29,15 +23,17 @@ class TakingMealState: TamagotchiState {
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-        return stateClass === FinishingMealState.self
+        switch stateClass {
+        case is ActiveState.Type:
+            return true
+        case is AsleepState.Type:
+            return true
+        default:
+            return false
+        }
     }
     
     override func update(withDeltaTime seconds: TimeInterval) {
         tamagotchi.repletion.level += 1
-        
-        if let action = SKAction(named: "fill\(tamagotchi.repletion.level)", duration: 0.5) {
-            guard let associatedNode = associatedNode else { return }
-            associatedNode.run(action)
-        }
     }
 }
