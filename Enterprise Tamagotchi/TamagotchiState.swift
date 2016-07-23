@@ -33,7 +33,7 @@ class TamagotchiState: GKState, LevelObserver {
     // MARK: LevelObserver
     
     func updatedLevel(level: Level) {
-        if let action = SKAction(named: "fill\(level.level)", duration: 0.5) {
+        if let action = SKAction(named: "fill\(level.level)", duration: 1/gameSpeed) {
             guard let associatedNode = associatedNode else { return }
             associatedNode.run(action)
         }

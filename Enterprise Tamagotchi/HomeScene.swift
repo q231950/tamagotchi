@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-let gameSpeed:Double = 3
+let gameSpeed:Double = 5
 
 class HomeScene : SKScene {
     private var stateMachine: GKStateMachine!

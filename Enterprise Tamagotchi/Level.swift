@@ -13,7 +13,7 @@ protocol LevelObserver {
 }
 
 class Level {
-    var level: Int = 0 {
+    var level: Int = 50 {
         didSet {
             observers.forEach { (observer: LevelObserver) in
                 observer.updatedLevel(level: self)

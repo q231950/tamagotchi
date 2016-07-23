@@ -34,6 +34,6 @@ class ActiveState : TamagotchiState {
     }
     
     override func update(withDeltaTime seconds: TimeInterval) {
-        tamagotchi.activity.level += 1
+        tamagotchi.increase(level: tamagotchi.activity)
     }
 }

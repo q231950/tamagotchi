@@ -34,6 +34,6 @@ class TakingMealState: TamagotchiState {
     }
     
     override func update(withDeltaTime seconds: TimeInterval) {
-        tamagotchi.repletion.level += 1
+        tamagotchi.increase(level: tamagotchi.repletion)
     }
 }

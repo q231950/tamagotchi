@@ -97,11 +97,11 @@
 		3B42B5B71D3A8E7F0063415E /* Tamagotchi */ = {
 			isa = PBXGroup;
 			children = (
+				3BE5BD561D42B940001CDBEA /* Tamagotchi.swift */,
 				3B42B5B51D3A8DE00063415E /* TamagotchiState.swift */,
 				3BAF451B1D3A68C6009DE1EA /* States */,
 				3B3F6DA61D3BAAB700D7EF15 /* Level.swift */,
 				3B3F6DA41D3BAA8900D7EF15 /* Sleep.swift */,
-				3BE5BD561D42B940001CDBEA /* Tamagotchi.swift */,
 			);
 			name = Tamagotchi;
 			sourceTree = "<group>";

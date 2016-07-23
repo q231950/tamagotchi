@@ -35,6 +35,6 @@ class AsleepState : TamagotchiState {
     }
     
     override func update(withDeltaTime seconds: TimeInterval) {
-        tamagotchi.sleep.level += 1
+        tamagotchi.increase(level: tamagotchi.sleep)
     }
 }
