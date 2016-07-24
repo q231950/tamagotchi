@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-let gameSpeed:Double = 5
+let gameSpeed:Double = 10
 
 class HomeScene : SKScene {
     private var stateMachine: GKStateMachine!
@@ -54,7 +54,6 @@ class HomeScene : SKScene {
     
     func attemptToPlay() {
         stateMachine.enterState(ActiveState.self)
-        
     }
     
     func attemptToTakeMeal() {
