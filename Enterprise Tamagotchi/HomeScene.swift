@@ -11,7 +11,7 @@ import GameplayKit
 
 let gameSpeed:Double = 10
 
-class HomeScene : SKScene {
+class HomeScene : SKScene, TamagotchiDelegate {
     private var stateMachine: GKStateMachine!
     var previousUpdateTime = TimeInterval(0)
     let tamagotchi = Tamagotchi()
@@ -27,9 +27,12 @@ class HomeScene : SKScene {
     }
     
     override func didMove(to view: SKView) {
+        tamagotchi.delegate = self
+        
         stateMachine = GKStateMachine(states: [AsleepState(home: self, tamagotchi:tamagotchi),
                                                ActiveState(home: self, tamagotchi:tamagotchi),
-                                               TakingMealState(home: self, tamagotchi:tamagotchi)])
+                                               TakingMealState(home: self, tamagotchi:tamagotchi),
+                                               DeadState(home: self, tamagotchi:tamagotchi)])
         
         stateMachine.enterState(ActiveState.self)
     }
@@ -58,6 +61,14 @@ class HomeScene : SKScene {
     
     func attemptToTakeMeal() {
         stateMachine.enterState(TakingMealState.self)
+    }
+    
+    func tamagotchiDied(tamagotchi: Tamagotchi) {
+        stateMachine.enterState(DeadState.self)
+        
+        let alertController = UIAlertController(title: "DEAD", message: "all tamagotchi is dead", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        UIApplication.shared().keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

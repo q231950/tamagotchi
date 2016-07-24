@@ -9,7 +9,12 @@
 import Foundation
 import UIKit
 
+protocol TamagotchiDelegate {
+    func tamagotchiDied(tamagotchi: Tamagotchi)
+}
+
 class Tamagotchi : LevelCoordinator {
+    var delegate: TamagotchiDelegate?
     let sleep = Level()
     let activity = Level()
     let repletion = Level()
@@ -33,13 +38,9 @@ class Tamagotchi : LevelCoordinator {
         }
     }
     
-    func reachedLethalLevel(level: Level) {
-        sleep.freeze()
-        activity.freeze()
-        repletion.freeze()
-        
-        let alertController = UIAlertController(title: "DEAD", message: "all tamagotchi is dead", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-        UIApplication.shared().keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+    func reachedLethalLevel(level: Level) {        
+        if let tamagotchiDelegate = delegate {
+            tamagotchiDelegate.tamagotchiDied(tamagotchi: self)
+        }
     }
 }

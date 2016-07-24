@@ -11,6 +11,7 @@
 		3B3F6DA51D3BAA8900D7EF15 /* Sleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F6DA41D3BAA8900D7EF15 /* Sleep.swift */; };
 		3B3F6DA71D3BAAB700D7EF15 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F6DA61D3BAAB700D7EF15 /* Level.swift */; };
 		3B42B5B61D3A8DE00063415E /* TamagotchiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B42B5B51D3A8DE00063415E /* TamagotchiState.swift */; };
+		3B5596311D44BA5B002F56D1 /* DeadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B5596301D44BA5B002F56D1 /* DeadState.swift */; };
 		3BAF44E21D3A61F1009DE1EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF44E11D3A61F1009DE1EA /* AppDelegate.swift */; };
 		3BAF44E61D3A61F1009DE1EA /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 3BAF44E51D3A61F1009DE1EA /* Actions.sks */; };
 		3BAF44EA1D3A61F1009DE1EA /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF44E91D3A61F1009DE1EA /* GameViewController.swift */; };
@@ -48,6 +49,7 @@
 		3B3F6DA41D3BAA8900D7EF15 /* Sleep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sleep.swift; sourceTree = "<group>"; };
 		3B3F6DA61D3BAAB700D7EF15 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		3B42B5B51D3A8DE00063415E /* TamagotchiState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TamagotchiState.swift; sourceTree = "<group>"; };
+		3B5596301D44BA5B002F56D1 /* DeadState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadState.swift; sourceTree = "<group>"; };
 		3BAF44DE1D3A61F1009DE1EA /* Enterprise Tamagotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Enterprise Tamagotchi.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BAF44E11D3A61F1009DE1EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BAF44E51D3A61F1009DE1EA /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			children = (
 				3BAF451E1D3A6941009DE1EA /* AsleepState.swift */,
 				3BAF45221D3A6982009DE1EA /* ActiveState.swift */,
+				3B5596301D44BA5B002F56D1 /* DeadState.swift */,
 				3B3129FF1D3AB67F00F8F739 /* TakingMealState.swift */,
 			);
 			name = States;
@@ -314,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BAF451F1D3A6941009DE1EA /* AsleepState.swift in Sources */,
+				3B5596311D44BA5B002F56D1 /* DeadState.swift in Sources */,
 				3BE5BD571D42B940001CDBEA /* Tamagotchi.swift in Sources */,
 				3B312A001D3AB67F00F8F739 /* TakingMealState.swift in Sources */,
 				3B42B5B61D3A8DE00063415E /* TamagotchiState.swift in Sources */,

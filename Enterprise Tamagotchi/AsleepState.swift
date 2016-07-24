@@ -29,6 +29,8 @@ class AsleepState : TamagotchiState {
             return true
         case is TakingMealState.Type:
             return true
+        case is DeadState.Type:
+            return true
         default:
             return false
         }
