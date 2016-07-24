@@ -168,8 +168,8 @@
 			children = (
 				3BAF451E1D3A6941009DE1EA /* AsleepState.swift */,
 				3BAF45221D3A6982009DE1EA /* ActiveState.swift */,
-				3B5596301D44BA5B002F56D1 /* DeadState.swift */,
 				3B3129FF1D3AB67F00F8F739 /* TakingMealState.swift */,
+				3B5596301D44BA5B002F56D1 /* DeadState.swift */,
 			);
 			name = States;
 			sourceTree = "<group>";
